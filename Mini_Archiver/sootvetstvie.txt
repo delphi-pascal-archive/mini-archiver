@@ -1,0 +1,31 @@
+function Sootv(s1,s2:string):string;
+var i,z,aa:integer;
+ass:string;
+begin
+  if length(s1)>length(s2) then aa:= length(s1) else
+  aa:=length(s2);
+  for i:=1 to aa do
+  if s1[i]<>s2[i] then begin
+  ass:=copy(s1,1,i);
+  for z:=length(ass)-1 downto 1 do
+  if ass[z]='\' then
+  begin
+  result:=copy(ass,1,z);
+  exit;
+  end;
+  end;
+end;
+
+
+USAGE
+
+var s,s1:string;
+    dir:string;
+    i:integer;
+begin
+  for i:=1 to listbox1.Items.Count-1 do
+    begin
+    dir:=listbox1.Items.Strings[i-1];
+    dir:=sootv(dir,listbox1.Items.Strings[i]);
+    end;
+  caption:=dir;
